@@ -46,7 +46,7 @@ $> brew cask install vagrant-manager # see http://vagrantmanager.com/
 $> brew cask install docker          # install Docker -- https://docs.docker.com/engine/installation/mac/
 ~~~
 
-_Note_: later on, you might wish to use the following shell function to update the software installed using
+_Note_: later on, you might wish to use the following shell function to update the software installed using [Homebrew](http://brew.sh/).
 
 ```bash
 bup () {
