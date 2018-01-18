@@ -1,0 +1,13 @@
+site_name: Big Data Analytics
+pages:
+- Home: 'index.md'
+- Organization: 'layout.md'
+- Getting Started:
+  - Pre-Requisites: 'setup/preliminaries.md'
+  - Installation: 'setup/install.md'
+- Contributing:
+  - Overview: 'contributing/index.md'
+  - Directory Layout: 'layout.md'
+  - Repository Setup and Developments: 'contributing/setup.md'
+  - Semantic Versioning: 'contributing/versioning.md'
+theme: readthedocs
