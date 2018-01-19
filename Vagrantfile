@@ -1,6 +1,6 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
-# Time-stamp: <Fri 2018-01-19 14:55 svarrette>
+# Time-stamp: <Fri 2018-01-19 19:32 svarrette>
 ###########################################################################################
 #             __     __                          _    __ _ _
 #             \ \   / /_ _  __ _ _ __ __ _ _ __ | |_ / _(_) | ___
@@ -44,7 +44,7 @@ DEFAULT_SETTINGS = {
   # Default images settings
   :defaults => {
     :os     => :centos7,
-    :ram    => 512,
+    :ram    => 1024,
     :vcpus  => 2,
     :vbguest_auto_update => true,
     :nodes  => 1,

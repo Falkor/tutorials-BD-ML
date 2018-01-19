@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
-# Time-stamp: <Fri 2018-01-19 14:48 svarrette>
+# Time-stamp: <Fri 2018-01-19 19:21 svarrette>
 ###########################################################################################
 # __     __                          _     ____              _       _
 # \ \   / /_ _  __ _ _ __ __ _ _ __ | |_  | __ )  ___   ___ | |_ ___| |_ _ __ __ _ _ __
 #  \ \ / / _` |/ _` | '__/ _` | '_ \| __| |  _ \ / _ \ / _ \| __/ __| __| '__/ _` | '_ \
-#   \ V / (_| | (_| | | | (_| | | | | |_  | |_) | (_) | (_) | |_\__ \ |_| | | (_| | |_) |
+    #   \ V / (_| | (_| | | | (_| | | | | |_  | |_) | (_) | (_) | |_\__ \ |_| | | (_| | |_) |
 #    \_/ \__,_|\__, |_|  \__,_|_| |_|\__| |____/ \___/ \___/ \__|___/\__|_|  \__,_| .__/
 #              |___/                                                              |_|
 #                  Copyright (c) 2017 UL HPC Team <hpc-sysadmins@uni.lu>
@@ -32,8 +32,11 @@ EXTRA_PACKAGES=
 # List of default packages to install
 COMMON_DEFAULT_PACKAGES="wget figlet git screen bash-completion rsync vim python-pip htop"
 
-EASYBUILD_MODULES_TOOL=Lmod
-EASYBUILD_MODULE_NAMING_SCHEME=CategorizedModuleNamingScheme
+# Easybuild
+#export EASYBUILD_MODULES_TOOL=Lmod
+export EASYBUILD_MODULE_NAMING_SCHEME=CategorizedModuleNamingScheme
+EB_INSTALL_SCRIPT='/tmp/bootstrap_eb.py'
+EB_INSTALL_SCRIPT_URL='https://raw.githubusercontent.com/easybuilders/easybuild-framework/develop/easybuild/scripts/bootstrap_eb.py'
 
 
 ######
@@ -200,16 +203,16 @@ EOF
 }
 
 setup_easybuild() {
-    local bootstrap_eb='/tmp/bootstrap_eb.py'
     cat <<EOF > /etc/profile.d/easybuild.sh
 export EASYBUILD_PREFIX=\$HOME/.local/easybuild
+export GLOBAL_EASYBUILD_PREFIX=/opt/apps/
 export EASYBUILD_MODULES_TOOL=Lmod
 export EASYBUILD_MODULE_NAMING_SCHEME=CategorizedModuleNamingScheme
 # Use the below variable to run:
 #    module use $LOCAL_MODULES
 #    module load tools/EasyBuild
 export LOCAL_MODULES=\$EASYBUILD_PREFIX/modules/all
-export GLOBAL_MODULES=/opt/apps/modules/all
+export GLOBAL_MODULES=\$GLOBAL_EASYBUILD_PREFIX/modules/all
 
 alias ml="module list"
 function mu(){
@@ -217,16 +220,16 @@ function mu(){
     module use \$LOCAL_MODULES
     module load tools/EasyBuild
 }
-alias global_eb='eb --installpath=\$GLOBAL_MODULES'
+alias global_eb='eb --installpath=\$GLOBAL_EASYBUILD_PREFIX'
 
 EOF
     pip install functools32
-    if [ ! -f "${bootstrap_eb}" ]; then
-        sudo -u vagrant curl -o ${bootstrap_eb}  https://raw.githubusercontent.com/easybuilders/easybuild-framework/develop/easybuild/scripts/bootstrap_eb.py
+    if [ ! -f "${EB_INSTALL_SCRIPT}" ]; then
+        curl -o ${EB_INSTALL_SCRIPT} ${EB_INSTALL_SCRIPT_URL}
     fi
 
-    info "install Easybuild for the vagrant user"
-    sudo -u vagrant EASYBUILD_MODULE_NAMING_SCHEME=CategorizedModuleNamingScheme python ${bootstrap_eb} ~vagrant/.local/easybuild
+    info 'Installing Easybuild'
+    sudo -u vagrant EASYBUILD_MODULE_NAMING_SCHEME=CategorizedModuleNamingScheme python ${EB_INSTALL_SCRIPT} ~vagrant/.local/easybuild
 }
 
 
