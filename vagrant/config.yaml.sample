@@ -1,0 +1,147 @@
+# -*- mode: yaml; -*-
+# Time-stamp: <Fri 2018-01-19 11:32 svarrette>
+################################################################################
+# Complementary configuration for Vagrant
+# You can overwrite here the default settings defined in ../Vagrantfile and
+# rework the single / cluster configuratuion
+###
+
+#___________________________________________
+# Complete / re-define the default boxes below
+# Format:
+#   :<os><version>: <username>/<box> # see https://vagrantcloud.com
+# :boxes:
+#   :centos7: centos/7
+#   :debian8: debian/contrib-jessie64
+#   :ubuntu14: ubuntu/trusty64
+
+#_________________
+# Default settings
+# :defaults:
+#   :os: :centos7         # Default OS from the above box definition
+#   :ram: 512             # Default RAM
+#   :vcpus: 1             # Default number of virtual CPUs
+#   :vbguest_auto_update: 1  # check/update box guest additions
+#   :nodes: 1             # Default number of compute nodes
+#                           also recomputed from partition config
+#   :mode: single         # Type of deployment: 'single' image or
+#                           slurm 'cluster'
+
+#____________________
+# Network settings
+# :network:
+#   :domain: 'vagrant.dev'       # network domain to use
+#   :range: '10.10.1.0/24'       # IP range to use
+#   :client_ip_start_offset: 100 # Note: compute nodes will have xx.xx.xx.254
+#   # client/compute nodes VMs will start on xx.xx.xx.<client_ip_start_offset+1>
+
+#___________________________________________________________
+# VMs / Vagrant boxes to define apart from the compute nodes
+# Format:
+# <name>:
+#   :hostname: <hostname>
+#   :desc: <VM-description>
+#   :os: <os>       # from the configured boxes
+#   :ram: <ram>
+#   :vcpus: <vcpus>
+#   :role: <role>   # supported: [ 'controller', 'frontend' ]
+#
+# :vms:
+#   'slurm-backup':
+#     :hostname: slurm2
+#     :ram: 2048
+#     :vcpus: 2
+#     :desc: 'Slurm Controller #2 (backup)'
+#     :role: controller
+
+#_______________________________________________________________________
+# Default setting for the simulated compute nodes of the virtual cluster
+# :nodes:
+#   :cpus: 4
+#   :sockets: 2
+#   :ram: 512
+#   :realmemory: 400       # has to be reported to Slurm
+#   :cores_per_socket: 2
+#   :thread_per_core: 1
+#   :state: UNKNOWN
+
+#_______________________________________________________________________
+# The real part: Details of the Slurm Configuration
+# used later to feed slurm.conf from the ERB template
+# :slurm:
+#   :template: slurm.conf.erb
+#   :clustername: thor
+#   :allowgroups: clusterusers
+#   # Default Partition / QoS. Format:
+#   # '<name>':
+#   #     :nodes: n           # Number of nodes
+#   #     :default: true|false  # Default partition?
+#   #     :hidden: true|false  # Hidden partition?
+#   #     :allowgroups: 'ALL|group[,group]*'
+#   #     :allowaccounts: 'ALL|acct[,acct]*'
+#   #     :allowqos:'ALL|qos[,qos]*'
+#   #     :state: 'UP|DOWN|DRAIN|INACTIVE'
+#   #     :oversubscribe: 'EXCLUSIVE|FORCE|YES|NO' (replace :shared)
+#   #     #=== Time Format: minutes, minutes:seconds, hours:minutes:seconds, days-hours,
+#   #             days-hours:minutes, days-hours:minutes:seconds or "UNLIMITED"
+#   #     :default_time: 'UNLIMITED|DD-HH:MM:SS',
+#   #     :max_time:     'UNLIMITED|DD-HH:MM:SS'
+#   #     #=== associated QoS config, named 'qos-<partition>' ===
+#   #     :priority: n           # QoS priority (default: 0)
+#   #     :preempt: 'qos-<name>
+#   #
+#   :partitions:
+#     interactive:
+#       :nodes: 1
+#       :priority: 0
+#       :default_time: 0-10:00:00
+#       :max_time: 5-00:00:00
+#     batch:
+#       :nodes: 2
+#       :priority: 100
+#       :default: true
+#       :preempt: qos-interactive
+#       :default_time: 0-2:00:00
+#       :max_time: 5-00:00:00
+#   ### General options you may wish to customize
+#   :mpidefault: none
+#   :mpiparams: ''
+#   :topology: ''
+#   :mempercpu: 0
+#   :maxmempercpu: 0
+#   :slurmctlddebug: 3
+#   :slurmddebug: 3
+#   :slurmctldport: 6817
+#   :slurmdport: 6818
+#   :srunportrange: 50000-53000
+#   :jobsubmitplugins: ''   #'lua'
+#   # job completion logging mechanism type. You can use 'jobcomp/mysql'
+#   :jobcomptype: jobcomp/none
+#   :jobcomploc: ''
+#   # Health checker -- Ex: NHC / see https://github.com/mej/nhc
+#   :healthcheckprogram: ''
+#   :healthcheckinterval: 30
+#   # What level of association-based enforcement to impose on job submissions
+#   :acct_storageenforce: qos,limits,associations
+#   # type of scheduler to be use
+#   :schedulertype: sched/backfill
+#   # Plugin used to identify which jobs can be preempted in order to start a pending job
+#   :preempttype: preempt/qos
+#   :preemptmode: requeue
+#   # Plugin to be used in establishing a job's scheduling priority
+#   :prioritytype: priority/multifactor
+#   :prioritydecayHL: 5-0
+#   :priorityweightage: 0
+#   :priorityweightfairshare: 0
+#   :priorityweightjobsize: 0
+#   :priorityweightpartition: 0
+#   :priorityweightqos: 0
+#   # type of resource selection algorithm to be used
+#   :selecttype: select/cons_res
+#   :selecttype_params: CR_Core_Memory,CR_CORE_DEFAULT_DIST_BLOCK
+#   # type of task launch plugin, typically used to provide resource management within a node
+#   :taskplugin: task/cgroup
+#   :taskplugin_params: cpusets
+#   # hooks
+#   :taskprolog: '' # program to be execute prior to initiation of each task
+#   :taskepilog: '' # program to be execute after termination of each task
