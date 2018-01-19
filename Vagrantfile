@@ -1,6 +1,6 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
-# Time-stamp: <Fri 2018-01-19 11:24 svarrette>
+# Time-stamp: <Fri 2018-01-19 14:55 svarrette>
 ###########################################################################################
 #             __     __                          _    __ _ _
 #             \ \   / /_ _  __ _ _ __ __ _ _ __ | |_ / _(_) | ___
@@ -33,9 +33,11 @@ require 'terminal-table'
 VAGRANTFILE_API_VERSION = "2"
 
 # Eventually a local YAML configuration for the deployment
-TOP_SRCDIR         = File.expand_path File.dirname(__FILE__)
-TOP_SLURM_CONFDIR  = File.join(TOP_SRCDIR, 'vagrant')
-config_file        = File.join(TOP_SLURM_CONFDIR, 'config.yaml')
+TOP_SRCDIR  = File.expand_path File.dirname(__FILE__)
+TOP_CONFDIR = File.join(TOP_SRCDIR, 'vagrant')
+config_file = File.join(TOP_CONFDIR, 'config.yaml')
+
+SHARED_DIR  = File.join('vagrant', 'shared')
 
 ### Default settings ###
 DEFAULT_SETTINGS = {
@@ -243,8 +245,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   # # Specialize slurm.conf with the appropriate partitions and node names
-  # erb        = File.join(TOP_SLURM_CONFDIR, slurm[:template])
-  # slurm_conf = File.join(TOP_SLURM_CONFDIR, 'slurm.conf')
+  # erb        = File.join(TOP_CONFDIR, slurm[:template])
+  # slurm_conf = File.join(TOP_CONFDIR, 'slurm.conf')
   # config.trigger.before :up do
   #   abort "Unable to find the ERB template for slurm.conf '#{erb}'" unless File.exists?( erb )
   #   if File.exists?(slurm_conf)
@@ -271,10 +273,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.provision "shell", path: "#{script}", keep_color: true
   end
   config.vm.synced_folder ".", "/vagrant", type: "virtualbox"
-  if mode == 'cluster'
-    config.vm.synced_folder "vagrant/shared", "/shared", mount_options: ['dmode=777','fmode=777'],
-                            type: "virtualbox" # Share homedir for users
-  end
+  config.vm.synced_folder "vagrant/shared", "/shared", mount_options: ['dmode=777','fmode=777'],
+                          type: "virtualbox" # Shared directory for users
+
   # network settings
   ipaddr   = IPAddr.new network[:range]
   ip_range = ipaddr.to_range.to_a
@@ -321,6 +322,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         v.customize [ 'modifyvm', :id, '--cpus', vcpus.to_s ] if vcpus.to_i > 1
         #v.customize [ 'setextradata', :id, 'VBoxInternal2/SharedFoldersEnableSymlinksCreate/v-root', '1']
       end
+      c.vm.provision "shell", inline: "[ ! -h '/opt/apps' ] && ln -sf /vagrant/#{SHARED_DIR}/easybuild/#{os} /opt/apps || true"
+
       if mode == 'cluster'
         # Installation and setup of slurm
         c.vm.provision "shell" do |s|

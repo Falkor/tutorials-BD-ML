@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Time-stamp: <Fri 2018-01-19 11:29 svarrette>
+# Time-stamp: <Fri 2018-01-19 14:48 svarrette>
 ###########################################################################################
 # __     __                          _     ____              _       _
 # \ \   / /_ _  __ _ _ __ __ _ _ __ | |_  | __ )  ___   ___ | |_ ___| |_ _ __ __ _ _ __
@@ -30,7 +30,11 @@ DOTFILES_URL='https://github.com/ULHPC/dotfiles.git'
 EXTRA_PACKAGES=
 
 # List of default packages to install
-COMMON_DEFAULT_PACKAGES="wget figlet git screen bash-completion rsync vim"
+COMMON_DEFAULT_PACKAGES="wget figlet git screen bash-completion rsync vim python-pip htop"
+
+EASYBUILD_MODULES_TOOL=Lmod
+EASYBUILD_MODULE_NAMING_SCHEME=CategorizedModuleNamingScheme
+
 
 ######
 # Print information in the following form: '[$2] $1' ($2=INFO if not submitted)
@@ -78,6 +82,12 @@ setup_redhat() {
     sleep 1
     info "Installing Puppet and its dependencies"
     yum install -y puppet-agent >/dev/null
+
+    info "installing Environment modules and  LMod"
+    yum install -y environment-modules Lmod
+
+    yum groupinstall -y "Development Tools"
+    yum install -y ncurses-devel libibverbs-dev libibverbs-devel, rdma-core-devel
 }
 
 setup_apt() {
@@ -102,6 +112,10 @@ setup_apt() {
     info "Installing Puppet and its dependencies"
     apt-get install puppet-agent -y >/dev/null
     apt-get install apt-transport-https -y >/dev/null
+
+    info "installing Environment modules and  LMod"
+    apt-get install -y environment-modules lmod
+    apt-get install -y build-essentials
 }
 
 setup_linux() {
@@ -185,6 +199,36 @@ EOF
 EOF
 }
 
+setup_easybuild() {
+    local bootstrap_eb='/tmp/bootstrap_eb.py'
+    cat <<EOF > /etc/profile.d/easybuild.sh
+export EASYBUILD_PREFIX=\$HOME/.local/easybuild
+export EASYBUILD_MODULES_TOOL=Lmod
+export EASYBUILD_MODULE_NAMING_SCHEME=CategorizedModuleNamingScheme
+# Use the below variable to run:
+#    module use $LOCAL_MODULES
+#    module load tools/EasyBuild
+export LOCAL_MODULES=\$EASYBUILD_PREFIX/modules/all
+export GLOBAL_MODULES=/opt/apps/modules/all
+
+alias ml="module list"
+function mu(){
+    module use \$GLOBAL_MODULES
+    module use \$LOCAL_MODULES
+    module load tools/EasyBuild
+}
+alias global_eb='eb --installpath=\$GLOBAL_MODULES'
+
+EOF
+    pip install functools32
+    if [ ! -f "${bootstrap_eb}" ]; then
+        sudo -u vagrant curl -o ${bootstrap_eb}  https://raw.githubusercontent.com/easybuilders/easybuild-framework/develop/easybuild/scripts/bootstrap_eb.py
+    fi
+
+    info "install Easybuild for the vagrant user"
+    sudo -u vagrant EASYBUILD_MODULE_NAMING_SCHEME=CategorizedModuleNamingScheme python ${bootstrap_eb} ~vagrant/.local/easybuild
+}
+
 
 ######################################################################################
 [ $UID -gt 0 ] && error "You must be root to execute this script (current uid: $UID)"
@@ -216,3 +260,4 @@ esac
 
 setup_dotfiles
 setup_motd
+setup_easybuild
