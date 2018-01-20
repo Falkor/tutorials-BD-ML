@@ -15,7 +15,7 @@
 
 # Tutorial "Big Data Analytics"
 
-This repository hosts documents, material and information related to the tutorial "__Big Data Analytics__" given during the [3rd NESUS Winter School and PhD Symposium](http://nesusws.irb.hr/) on ata Science and Heterogeneous Computing
+This repository hosts documents, material and information related to the tutorial "__Big Data Analytics__" given during the [3rd NESUS Winter School and PhD Symposium](http://nesusws.irb.hr/) on Data Science and Heterogeneous Computing
 
 * __Date__: Tuesday January 23th, 2018, 9h -- 13h.
 * __Location__: Zagreb, Croatia
