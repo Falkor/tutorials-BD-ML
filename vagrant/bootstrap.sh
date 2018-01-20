@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Time-stamp: <Sat 2018-01-20 17:28 svarrette>
+# Time-stamp: <Sat 2018-01-20 18:08 svarrette>
 ###########################################################################################
 # __     __                          _     ____              _       _
 # \ \   / /_ _  __ _ _ __ __ _ _ __ | |_  | __ )  ___   ___ | |_ ___| |_ _ __ __ _ _ __
@@ -90,7 +90,7 @@ setup_redhat() {
     yum install -y environment-modules Lmod
 
     yum groupinstall -y "Development Tools"
-    yum install -y openssl-devel libssl-dev libopenssl-devel ncurses-devel libibverbs-dev libibverbs-devel, rdma-core-devel
+    yum install -y openssl-devel libssl-dev libopenssl-devel ncurses-devel libibverbs-dev libibverbs-devel, rdma-core-devel bzip2-devel readline-devel libsqlite3x-devel
 }
 
 setup_apt() {
@@ -247,7 +247,9 @@ if [ -d "\$HOME/.pyenv" ]; then
     eval "\$(pyenv virtualenv-init -)"
 fi
 EOF
-
+    if [ ! -h "/home/vagrant/.config/direnv" ]; then
+        ln -sf /vagrant/config/direnv /home/vagrant/.config/direnv
+    fi
 }
 
 
