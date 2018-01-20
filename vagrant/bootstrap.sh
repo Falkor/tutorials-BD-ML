@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Time-stamp: <Fri 2018-01-19 19:21 svarrette>
+# Time-stamp: <Fri 2018-01-19 22:10 svarrette>
 ###########################################################################################
 # __     __                          _     ____              _       _
 # \ \   / /_ _  __ _ _ __ __ _ _ __ | |_  | __ )  ___   ___ | |_ ___| |_ _ __ __ _ _ __
@@ -214,6 +214,7 @@ export EASYBUILD_MODULE_NAMING_SCHEME=CategorizedModuleNamingScheme
 export LOCAL_MODULES=\$EASYBUILD_PREFIX/modules/all
 export GLOBAL_MODULES=\$GLOBAL_EASYBUILD_PREFIX/modules/all
 
+alias ma="module avail"
 alias ml="module list"
 function mu(){
     module use \$GLOBAL_MODULES
