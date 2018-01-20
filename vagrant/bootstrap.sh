@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
-# Time-stamp: <Fri 2018-01-19 22:10 svarrette>
+# Time-stamp: <Sat 2018-01-20 17:28 svarrette>
 ###########################################################################################
 # __     __                          _     ____              _       _
 # \ \   / /_ _  __ _ _ __ __ _ _ __ | |_  | __ )  ___   ___ | |_ ___| |_ _ __ __ _ _ __
 #  \ \ / / _` |/ _` | '__/ _` | '_ \| __| |  _ \ / _ \ / _ \| __/ __| __| '__/ _` | '_ \
-    #   \ V / (_| | (_| | | | (_| | | | | |_  | |_) | (_) | (_) | |_\__ \ |_| | | (_| | |_) |
+#   \ V / (_| | (_| | | | (_| | | | | |_  | |_) | (_) | (_) | |_\__ \ |_| | | (_| | |_) |
 #    \_/ \__,_|\__, |_|  \__,_|_| |_|\__| |____/ \___/ \___/ \__|___/\__|_|  \__,_| .__/
 #              |___/                                                              |_|
 #                  Copyright (c) 2017 UL HPC Team <hpc-sysadmins@uni.lu>
@@ -30,7 +30,7 @@ DOTFILES_URL='https://github.com/ULHPC/dotfiles.git'
 EXTRA_PACKAGES=
 
 # List of default packages to install
-COMMON_DEFAULT_PACKAGES="wget figlet git screen bash-completion rsync vim python-pip htop"
+COMMON_DEFAULT_PACKAGES="wget figlet git screen bash-completion rsync vim python-pip htop direnv"
 
 # Easybuild
 #export EASYBUILD_MODULES_TOOL=Lmod
@@ -90,7 +90,7 @@ setup_redhat() {
     yum install -y environment-modules Lmod
 
     yum groupinstall -y "Development Tools"
-    yum install -y ncurses-devel libibverbs-dev libibverbs-devel, rdma-core-devel
+    yum install -y openssl-devel libssl-dev libopenssl-devel ncurses-devel libibverbs-dev libibverbs-devel, rdma-core-devel
 }
 
 setup_apt() {
@@ -221,6 +221,12 @@ function mu(){
     module use \$LOCAL_MODULES
     module load tools/EasyBuild
 }
+
+# Prepend directories holding eb file for this turorial to the robot path
+# See http://easybuild.readthedocs.io/en/latest/Using_the_EasyBuild_command_line.html?highlight=EASYBUILD_ROBOT#prepending-and-or-appending-to-the-default-robot-search-path
+
+export EASYBUILD_ROBOT_PATHS=\$(find /vagrant/resources/ -name *.eb | xargs dirname | sort | uniq | xargs echo | tr ' ' ':'):
+
 alias global_eb='eb --installpath=\$GLOBAL_EASYBUILD_PREFIX'
 
 EOF
@@ -231,6 +237,17 @@ EOF
 
     info 'Installing Easybuild'
     sudo -u vagrant EASYBUILD_MODULE_NAMING_SCHEME=CategorizedModuleNamingScheme python ${EB_INSTALL_SCRIPT} ~vagrant/.local/easybuild
+}
+
+setup_pyenv() {
+    cat <<EOF > /etc/profile.d/pyenv.sh
+if [ -d "\$HOME/.pyenv" ]; then
+    export PATH="\$HOME/.pyenv/bin:\$PATH"
+    eval "\$(pyenv init -)"
+    eval "\$(pyenv virtualenv-init -)"
+fi
+EOF
+
 }
 
 
@@ -253,15 +270,17 @@ while [ $# -ge 1 ]; do
     shift
 done
 
-# Let's go
-case "$OSTYPE" in
-    linux*)   setup_linux ;;
-    *)        echo "unknown: $OSTYPE"; exit 1;;
-esac
+# # Let's go
+# case "$OSTYPE" in
+#     linux*)   setup_linux ;;
+#     *)        echo "unknown: $OSTYPE"; exit 1;;
+# esac
 
-[ -f /usr/bin/puppet ] || ln -s /opt/puppetlabs/puppet/bin/puppet /usr/bin/puppet
-[ -f /usr/bin/facter ] || ln -s /opt/puppetlabs/puppet/bin/facter /usr/bin/facter
+# [ -f /usr/bin/puppet ] || ln -s /opt/puppetlabs/puppet/bin/puppet /usr/bin/puppet
+# [ -f /usr/bin/facter ] || ln -s /opt/puppetlabs/puppet/bin/facter /usr/bin/facter
 
-setup_dotfiles
-setup_motd
-setup_easybuild
+# setup_dotfiles
+# setup_motd
+# setup_easybuild
+
+setup_pyenv

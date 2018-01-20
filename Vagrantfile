@@ -1,6 +1,6 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
-# Time-stamp: <Fri 2018-01-19 19:32 svarrette>
+# Time-stamp: <Sat 2018-01-20 16:51 svarrette>
 ###########################################################################################
 #             __     __                          _    __ _ _
 #             \ \   / /_ _  __ _ _ __ __ _ _ __ | |_ / _(_) | ___
@@ -45,7 +45,7 @@ DEFAULT_SETTINGS = {
   :defaults => {
     :os     => :centos7,
     :ram    => 1024,
-    :vcpus  => 2,
+    :vcpus  => 4,
     :vbguest_auto_update => true,
     :nodes  => 1,
     :mode   => 'single',
@@ -92,51 +92,6 @@ DEFAULT_SETTINGS = {
       #                    :default_time => '0-2:00:00', :max_time => '5-00:00:00'},
       #'long'        => { :nodes => 1, :oversubscribe => 'FORCE', :allowqos => 'qos1,qos2' }
     },
-    :accounts => {
-
-    },
-    ### General options you may wish to customize
-    :mpidefault          => 'none',
-    :mpiparams           => '',
-    :topology            => '',
-    :mempercpu           => 0,
-    :maxmempercpu        => 0,
-    :slurmctlddebug      => 3,
-    :slurmddebug         => 3,
-    :slurmctldport       => 6817,
-    :slurmdport          => 6818,
-    :srunportrange       => '50000-53000',
-    :jobsubmitplugins    => '',    #'lua',
-    #  job completion logging mechanism type. You can use 'jobcomp/mysql'
-    :jobcomptype         => 'jobcomp/none',
-    :jobcomploc          => '',
-    # Health checker -- Ex: NHC / see https://github.com/mej/nhc
-    :healthcheckprogram  => '',
-    :healthcheckinterval => 30,
-    # What level of association-based enforcement to impose on job submissions
-    :acct_storageenforce => 'qos,limits,associations',
-    # type of scheduler to be use
-    :schedulertype       => 'sched/backfill',
-    # Plugin used to identify which jobs can be preempted in order to start a pending job.
-    :preempttype         => 'preempt/qos',
-    :preemptmode         => 'requeue',
-    # Plugin to be used in establishing a job's scheduling priority
-    :prioritytype        => 'priority/multifactor',
-    :prioritydecayHL     => '5-0',
-    :priorityweightage       => 0,
-    :priorityweightfairshare => 0,
-    :priorityweightjobsize   => 0,
-    :priorityweightpartition => 0,
-    :priorityweightqos       => 0,
-    # type of resource selection algorithm to be used
-    :selecttype              => 'select/cons_res',
-    :selecttype_params       => 'CR_Core_Memory,CR_CORE_DEFAULT_DIST_BLOCK',
-    # type of task launch plugin, typically used to provide resource management within a node
-    :taskplugin        => 'task/cgroup',
-    :taskplugin_params => 'cpusets',
-    # hooks
-    :taskprolog => '',  # program to be execute prior to initiation of each task
-    :taskepilog => '',  # program to be execute after termination of each task
   },
   # Characteristics of the virtual computing nodes within your cluster, from slurm point of view
   :nodes => {
@@ -156,7 +111,6 @@ DEFAULT_SETTINGS = {
   #   :ram: <ram>
   #   :vcpus: <vcpus>
   #   :role: <role>   # supported: [ 'controller', 'frontend' ]
-
   :vms => {
     # IF in single mode, below is the definition of the box to deploy
     'default' => {
@@ -199,15 +153,17 @@ abort "Undefined settings" if settings.nil?
 # Complete configuration of the boxes to deploy
 defaults = settings[:defaults]
 mode     = defaults[:mode]
+network  = settings[:network]
+slurm    = settings[:slurm]
+nodes    = settings[:nodes]
+
 if mode == 'cluster'
   settings[:vms].delete('default')
 else
   # keep only the default entry
   settings[:vms].keep_if{|k,v| k == 'default'}
+  num_nodes = 1 if mode == 'distributed'
 end
-network  = settings[:network]
-slurm    = settings[:slurm]
-nodes    = settings[:nodes]
 
 if mode == 'cluster'
   controller_vms = settings[:vms].select { |k,v| v[:role] == 'controller' }.values.first
