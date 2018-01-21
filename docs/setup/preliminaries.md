@@ -1,5 +1,5 @@
 
-`/!\ IMPORTANT`: this is a **hands-on** tutorial: participants are expected bring a laptop and pre-install software _in advance_ to make the best use of time during the tutorial.
+`/!\ IMPORTANT`: this is a **hands-on** tutorial: participants are expected to bring a laptop and pre-install software _in advance_ to make the best use of time during the tutorial.
 If for some reason you are unable to fulfill this pre-requisite, try to seat close to an attendee that is able to perform these tasks.
 
 _Note_: in the following instructions, terminal commands are prefixed by a virtual prompt `$>`which obviously **does not** belong to the command.
