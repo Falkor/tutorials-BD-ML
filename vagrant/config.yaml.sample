@@ -25,7 +25,8 @@
 #   :nodes: 1             # Default number of compute nodes
 #                           also recomputed from partition config
 #   :mode: single         # Type of deployment: 'single' image or
-#                           slurm 'cluster'
+#                           'distributed' or slurm 'cluster' (that last one is
+#                           not yet implemented)
 
 #____________________
 # Network settings

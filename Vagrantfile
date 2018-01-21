@@ -1,6 +1,6 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
-# Time-stamp: <Sat 2018-01-20 19:36 svarrette>
+# Time-stamp: <Sun 2018-01-21 10:13 svarrette>
 ###########################################################################################
 #             __     __                          _    __ _ _
 #             \ \   / /_ _  __ _ _ __ __ _ _ __ | |_ / _(_) | ___
@@ -162,7 +162,14 @@ if mode == 'cluster'
 else
   # keep only the default entry
   settings[:vms].keep_if{|k,v| k == 'default'}
-  num_nodes = 1 if mode == 'distributed'
+  if mode == 'distributed'
+    num_nodes = defaults[:nodes]
+    (1..num_nodes).each do |n|
+      settings[:vms]["node-#{n}"] = {
+        :ram => nodes[:ram], :vcpus => nodes[:cpus], :desc => "Computing Node \##{n}"
+      }
+    end
+  end
 end
 
 if mode == 'cluster'

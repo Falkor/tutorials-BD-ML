@@ -3,7 +3,7 @@
 #         Mandatory for loading the modules
 ################################################################################
 # bootstrap.sh - Bootstrap Java, eventually with Easybuild
-# Time-stamp: <Sat 2018-01-20 19:16 svarrette>
+# Time-stamp: <Sun 2018-01-21 08:11 svarrette>
 ################################################################################
 
 DO_EASYBUILD=
@@ -26,6 +26,8 @@ JAVA8_EB='Java-1.8.0_152.eb'
 # Latest Maven
 MAVEN_EB='Maven-3.5.2.eb'
 
+# Hadoop
+HADOOP_EB='Hadoop-2.6.0-cdh5.12.0-native.eb'
 
 EB_PROFILE='/etc/profile.d/easybuild.sh'
 
@@ -51,15 +53,16 @@ function eb_install() {
 # Check for options
 while [ $# -ge 1 ]; do
     case $1 in
-        -e | -eb | --eb | --easybuild) DO_EASYBUILD=$1;;
-        -a | --all)
+        -e  | -eb | --eb | --easybuild) DO_EASYBUILD=$1;;
+        -a  | --all)
             INSTALL_JAVA7=$1
             INSTALL_JAVA8=$1
             INSTALL_MAVEN=$1
             ;;
-        -7 | -java7 | --java7)         INSTALL_JAVA7=$1;;
-        -8 | -java8 | --java8)         INSTALL_JAVA8=$1;;
-        -m | --maven)                  INSTALL_MAVEN=$1;;
+        -7  | -java7 | --java7)   INSTALL_JAVA7=$1;;
+        -8  | -java8 | --java8)   INSTALL_JAVA8=$1;;
+        -m  | --maven)            INSTALL_MAVEN=$1;;
+        -ha | -hadoop | --hadoop) INSTALL_HADOOP=$1;;
     esac
     shift
 done
@@ -94,4 +97,9 @@ fi
 # eventually install Maven
 if [ -n "${INSTALL_MAVEN}" ] && [ -n "${DO_EASYBUILD}" ]; then
     eb_install "${MAVEN_EB}"
+fi
+
+# eventually install Hadoop
+if [ -n "${INSTALL_HADOOP}" ] && [ -n "${DO_EASYBUILD}" ] && [ -f "${HADOOP_EB}" ]; then
+    eb_install "${HADOOP_EB}"
 fi
