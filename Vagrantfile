@@ -1,6 +1,6 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
-# Time-stamp: <Sat 2018-01-20 16:51 svarrette>
+# Time-stamp: <Sat 2018-01-20 19:36 svarrette>
 ###########################################################################################
 #             __     __                          _    __ _ _
 #             \ \   / /_ _  __ _ _ __ __ _ _ __ | |_ / _(_) | ___
@@ -37,7 +37,7 @@ TOP_SRCDIR  = File.expand_path File.dirname(__FILE__)
 TOP_CONFDIR = File.join(TOP_SRCDIR, 'vagrant')
 config_file = File.join(TOP_CONFDIR, 'config.yaml')
 
-SHARED_DIR  = File.join('vagrant', 'shared')
+#SHARED_DIR  = File.join('vagrant', 'shared')
 
 ### Default settings ###
 DEFAULT_SETTINGS = {
@@ -278,7 +278,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         v.customize [ 'modifyvm', :id, '--cpus', vcpus.to_s ] if vcpus.to_i > 1
         #v.customize [ 'setextradata', :id, 'VBoxInternal2/SharedFoldersEnableSymlinksCreate/v-root', '1']
       end
-      c.vm.provision "shell", inline: "[ ! -h '/opt/apps' ] && ln -sf /vagrant/#{SHARED_DIR}/easybuild/#{os} /opt/apps || true"
+      # Prepare the global Easybuild directory
+      c.vm.provision "shell", inline: "[ ! -h '/opt/apps' ] && ln -sf /vagrant/easybuild/#{os} /opt/apps || true"
 
       if mode == 'cluster'
         # Installation and setup of slurm

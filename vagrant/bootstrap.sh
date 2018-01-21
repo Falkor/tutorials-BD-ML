@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Time-stamp: <Sat 2018-01-20 18:08 svarrette>
+# Time-stamp: <Sat 2018-01-20 23:12 svarrette>
 ###########################################################################################
 # __     __                          _     ____              _       _
 # \ \   / /_ _  __ _ _ __ __ _ _ __ | |_  | __ )  ___   ___ | |_ ___| |_ _ __ __ _ _ __
@@ -170,7 +170,7 @@ setup_dotfiles () {
         info "installing git-prompt to define __git_ps1"
         [ ! -e "${dst_git_prompt}" ] && ln -s ${src_git_prompt} ${dst_git_prompt}
     fi
-    local dotfile_install_cmd="${DOTFILES_DIR}/install.sh --offline --force -d ${DOTFILES_DIR} --bash --screen"
+    local dotfile_install_cmd="${DOTFILES_DIR}/install.sh --offline --force -d ${DOTFILES_DIR} --bash --screen --git"
     if [ -d "${DOTFILES_DIR}" ]; then
         info "installing dotfiles for 'root' user"
         ${dotfile_install_cmd}
@@ -224,12 +224,12 @@ function mu(){
 
 # Prepend directories holding eb file for this turorial to the robot path
 # See http://easybuild.readthedocs.io/en/latest/Using_the_EasyBuild_command_line.html?highlight=EASYBUILD_ROBOT#prepending-and-or-appending-to-the-default-robot-search-path
-
-export EASYBUILD_ROBOT_PATHS=\$(find /vagrant/resources/ -name *.eb | xargs dirname | sort | uniq | xargs echo | tr ' ' ':'):
+# export EASYBUILD_ROBOT_PATHS=\$(find /vagrant/resources/ -name *.eb | xargs dirname | sort | uniq | xargs echo | tr ' ' ':'):
 
 alias global_eb='eb --installpath=\$GLOBAL_EASYBUILD_PREFIX'
 
 EOF
+    pip install --upgrade pip
     pip install functools32
     if [ ! -f "${EB_INSTALL_SCRIPT}" ]; then
         curl -o ${EB_INSTALL_SCRIPT} ${EB_INSTALL_SCRIPT_URL}
@@ -248,7 +248,8 @@ if [ -d "\$HOME/.pyenv" ]; then
 fi
 EOF
     if [ ! -h "/home/vagrant/.config/direnv" ]; then
-        ln -sf /vagrant/config/direnv /home/vagrant/.config/direnv
+        sudo -u vagrant mkdir -p /home/vagrant/.config
+        sudo -u vagrant ln -sf /vagrant/config/direnv /home/vagrant/.config/direnv
     fi
 }
 
@@ -272,17 +273,16 @@ while [ $# -ge 1 ]; do
     shift
 done
 
-# # Let's go
-# case "$OSTYPE" in
-#     linux*)   setup_linux ;;
-#     *)        echo "unknown: $OSTYPE"; exit 1;;
-# esac
+# Let's go
+case "$OSTYPE" in
+    linux*)   setup_linux ;;
+    *)        echo "unknown: $OSTYPE"; exit 1;;
+esac
 
-# [ -f /usr/bin/puppet ] || ln -s /opt/puppetlabs/puppet/bin/puppet /usr/bin/puppet
-# [ -f /usr/bin/facter ] || ln -s /opt/puppetlabs/puppet/bin/facter /usr/bin/facter
+[ -f /usr/bin/puppet ] || ln -s /opt/puppetlabs/puppet/bin/puppet /usr/bin/puppet
+[ -f /usr/bin/facter ] || ln -s /opt/puppetlabs/puppet/bin/facter /usr/bin/facter
 
-# setup_dotfiles
-# setup_motd
-# setup_easybuild
-
+setup_dotfiles
+setup_motd
+setup_easybuild
 setup_pyenv
