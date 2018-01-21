@@ -1,6 +1,7 @@
 -*- mode: markdown; mode: visual-line; fill-column: 80 -*-
 
-![By Falkor](https://img.shields.io/badge/by-Falkor-blue.svg)  [![Licence](https://img.shields.io/badge/license-GPL--3.0-blue.svg)](http://www.gnu.org/licenses/gpl-3.0.html) [![github](https://img.shields.io/badge/git-github-lightgray.svg)](https://github.com/Falkor/tutorials-bd-ml)
+![By Falkor](https://img.shields.io/badge/by-Falkor-blue.svg)  [![Licence](https://img.shields.io/badge/license-GPL--3.0-blue.svg)](http://www.gnu.org/licenses/gpl-3.0.html) [![github](https://img.shields.io/badge/git-github-lightgray.svg)](https://github.com/Falkor/tutorials-bd-ml) [![Documentation Status](https://readthedocs.org/projects/nesusws-tutorials-bd-dl/badge/?version=latest)](http://nesusws-tutorials-bd-dl.readthedocs.io/en/latest/?badge=latest)
+
 
        Time-stamp: <Thu 2018-01-18 16:30 svarrette>
 
@@ -48,6 +49,13 @@ Later on, you can upgrade the [Git submodules](.gitmodules) to the latest versio
 If upon pulling the repository, you end in a state where another collaborator have upgraded the Git submodules for this repository, you'll end in a dirty state (as reported by modifications within the `.submodules/` directory). In that case, just after the pull, you **have to run** the following to ensure consistency with regards the Git submodules:
 
     $> make update
+
+## Tutorial Slides and Instructions
+
+The latest version of the tutorial is available online:
+
+<http://nesusws-tutorials-bd-dl.rtfd.io>
+
 
 ## Issues / Feature request
 
