@@ -1,4 +1,3 @@
-# Hadoop installation with Easybuild
 
 We are going to install the  [Hadoop MapReduce by Cloudera](https://www.cloudera.com/downloads/cdh/5-12-0.html) using [EasyBuild](http://easybuild.readthedocs.io/).
 
