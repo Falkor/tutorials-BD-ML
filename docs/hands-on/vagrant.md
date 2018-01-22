@@ -1,5 +1,5 @@
 
-# Hands-on: Reproduce Deployment in Vagrant
+__Hands-on: Reproduce Deployment in Vagrant__
 
 The objective of this first exercise is to familiarize you with [Vagrant](https://www.vagrantup.com) and see how it can be used to bundle an environment out of a recipe.
 

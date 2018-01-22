@@ -10,6 +10,7 @@ pages:
   - Vagrant: 'hands-on/vagrant.md'
   - Modules, LMod and Easybuild: 'hands-on/easybuild.md'
   - Hadoop/Installation: 'hands-on/hadoop/install.md'
+  - Data Transfer over SSH: 'hands-on/data-transfer.md'
 - Contributing:
   - Overview: 'contributing/index.md'
   - Directory Layout: 'layout.md'

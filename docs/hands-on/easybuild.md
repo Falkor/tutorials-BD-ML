@@ -109,7 +109,7 @@ Additional details are available on EasyBuild website:
 - [EasyConfig files](http://easybuild.readthedocs.io/en/latest/Writing_easyconfig_files.html)
 - [List of supported software packages](http://easybuild.readthedocs.io/en/latest/version-specific/Supported_software.html)
 
-### Installation.
+### a. Installation.
 
 Again, [EasyBuild](http://easybuild.readthedocs.io/) comes pre-installed in your vagrant box.
 However, it can be reinstalled without any problem (actually that's how you can update it upon new releases of the tool) so we are going to do it now -- see also [the official instructions](http://easybuild.readthedocs.io/en/latest/Installation.html).
@@ -180,7 +180,7 @@ $> mu
 $> module avail     # OR 'ma'
 ```
 
-### Local vs. Global Usage
+### b. Local vs. Global Usage
 
 As you probably guessed from `/etc/profile.d/easybuild.sh`, we are going to use two places for the installed software:
 
