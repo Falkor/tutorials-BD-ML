@@ -3,7 +3,7 @@
 ![By Falkor](https://img.shields.io/badge/by-Falkor-blue.svg)  [![Licence](https://img.shields.io/badge/license-GPL--3.0-blue.svg)](http://www.gnu.org/licenses/gpl-3.0.html) [![github](https://img.shields.io/badge/git-github-lightgray.svg)](https://github.com/Falkor/tutorials-bd-ml) [![Issues](https://img.shields.io/badge/issues-github-green.svg)](https://github.com/Falkor/tutorials-BD-ML/issues) [![GitHub issues](https://img.shields.io/github/issues/Falkor/tutorials-BD-ML.svg)](https://github.com/Falkor/tutorials-BD-ML/issues/) [![Documentation Status](https://readthedocs.org/projects/nesusws-tutorials-bd-dl/badge/?version=latest)](http://nesusws-tutorials-bd-dl.readthedocs.io/en/latest/?badge=latest)
 
 
-       Time-stamp: <Thu 2018-01-18 16:34 svarrette>
+       Time-stamp: <Mon 2018-01-22 15:12 svarrette>
 
          ____  _         ____        _             _                _       _   _
         | __ )(_) __ _  |  _ \  __ _| |_ __ _     / \   _ __   __ _| |_   _| |_(_) ___ ___
@@ -13,7 +13,6 @@
                  |___/                                                |___/
 
        Copyright (c) 2018 Sebastien Varrette <Sebastien.Varrette@uni.lu>
-
 
 This repository hosts documents, material and information related to the tutorial "__Big Data Analytics__" given during the [3rd NESUS Winter School and PhD Symposium](http://nesusws.irb.hr/) on Data Science and Heterogeneous Computing
 
@@ -31,8 +30,9 @@ It proposes to detail the following elements:
 * The [organization and directory layout](layout.md)
 * Complete [Installation](setup/README.md) notes, including:
     - [Pre-requisites / Preliminary software](setup/preliminaries.md) to install and configuration instructions
+    - [Installation](setup/README.md) notes
 * Tutorial Slides
-* Hands-on Instructions
+* Hands-on Instructions (see [detailed list of the proposed hands-on](hands-on/README.md))
 * How to [contribute](contributing/index.md) to the development of this project. In particular, we detail:
      - the steps to follow to [setup this repository](contributing/setup.md)
      - information as regard the [semantic versioning](contributing/versioning.md) of this project

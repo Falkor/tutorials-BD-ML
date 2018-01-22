@@ -6,6 +6,7 @@ pages:
   - Pre-Requisites: 'setup/preliminaries.md'
   - Installation: 'setup/install.md'
 - Hands-On:
+  - Overview: 'hands-on/index.md'
   - Vagrant: 'hands-on/vagrant.md'
   - Modules, LMod and Easybuild: 'hands-on/easybuild.md'
   - Hadoop/Installation: 'hands-on/hadoop/install.md'

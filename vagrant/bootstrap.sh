@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Time-stamp: <Sat 2018-01-20 23:12 svarrette>
+# Time-stamp: <Mon 2018-01-22 14:50 svarrette>
 ###########################################################################################
 # __     __                          _     ____              _       _
 # \ \   / /_ _  __ _ _ __ __ _ _ __ | |_  | __ )  ___   ___ | |_ ___| |_ _ __ __ _ _ __
@@ -30,7 +30,7 @@ DOTFILES_URL='https://github.com/ULHPC/dotfiles.git'
 EXTRA_PACKAGES=
 
 # List of default packages to install
-COMMON_DEFAULT_PACKAGES="wget figlet git screen bash-completion rsync vim python-pip htop direnv"
+COMMON_DEFAULT_PACKAGES="wget figlet git screen bash-completion rsync nmap vim python-pip htop direnv"
 
 # Easybuild
 #export EASYBUILD_MODULES_TOOL=Lmod

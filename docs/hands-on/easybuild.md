@@ -18,8 +18,9 @@ For this second aspect, the solution came long time ago (in 1991) with the [Envi
 We will cover it in the first part of this hands-on. Then, another advantage of [EasyBuild](https://github.com/easybuilders/easybuild) comes into account that justifies its wide-spread deployment across many HPC centers (incl. [UL HPC](http://hpc.uni.lu)): it has been designed to not only build any piece of software, but also to generate the corresponding module files to facilitate further interactions with it.
 Thus we will cover [EasyBuild](https://github.com/easybuilders/easybuild) in the second part of this hands-on.
 
-## Part 1: Environment modules and LMod
 
+
+## Part 1: Environment modules and LMod
 
 [Environment Modules](http://modules.sourceforge.net/) are a standard and well-established technology across HPC sites, to permit developing and using complex software and libraries builds with dependencies, allowing multiple versions of software stacks and combinations thereof to co-exist.
 
