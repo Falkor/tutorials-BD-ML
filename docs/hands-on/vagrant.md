@@ -137,24 +137,11 @@ The root `Vagrantfile` allow for this type of deployment through the definition 
 
 Create a YAML file `vagrant/config.yaml` with the following content:
 
-```yaml
+~~~yaml
 # -*- mode: yaml; -*-
-# Time-stamp: <Sun 2018-01-21 08:55 svarrette>
-################################################################################
-# Complementary configuration for Vagrant
-# You can overwrite here the default settings defined in ../Vagrantfile and
-# rework the SLURM configuration
-# See the sample file or the DEFAULT_SETTING variable in ../Vagrantfile for an
-# overview of the available configs
-#
-# /!\ a deep merge approach is used to bring the below modifications to the
-# initial DEFAULT_SETTING hash. In particular, **nested hashes** are merged
-# too, not replaced (might impact the :partitions: settings).
-###
-
 :defaults:
   :mode: distributed
-```
+~~~
 
 See `vagrant/config.yaml.sample` for all possible options -- you might want to adapt the `:ram` and `:vcpus` settings to match your laptop capacities.
 

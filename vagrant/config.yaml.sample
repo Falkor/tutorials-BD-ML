@@ -1,5 +1,5 @@
 # -*- mode: yaml; -*-
-# Time-stamp: <Fri 2018-01-19 11:32 svarrette>
+# Time-stamp: <Mon 2018-01-22 08:20 svarrette>
 ################################################################################
 # Complementary configuration for Vagrant
 # You can overwrite here the default settings defined in ../Vagrantfile and
@@ -23,10 +23,11 @@
 #   :vcpus: 1             # Default number of virtual CPUs
 #   :vbguest_auto_update: 1  # check/update box guest additions
 #   :nodes: 1             # Default number of compute nodes
-#                           also recomputed from partition config
-#   :mode: single         # Type of deployment: 'single' image or
-#                           'distributed' or slurm 'cluster' (that last one is
-#                           not yet implemented)
+#                           also recomputed from partition config in cluster mode
+#   :mode: single         # Type of deployment. Eligible values:
+#                           'single' image or
+#                           'distributed' or
+#                           'cluster' (not yet implemented)
 
 #____________________
 # Network settings
