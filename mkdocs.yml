@@ -8,6 +8,7 @@ pages:
 - Hands-On:
   - Vagrant: 'hands-on/vagrant.md'
   - Modules, LMod and Easybuild: 'hands-on/easybuild.md'
+  - Hadoop/Installation: 'hands-on/hadoop/install.md'
 - Contributing:
   - Overview: 'contributing/index.md'
   - Directory Layout: 'layout.md'

@@ -3,7 +3,7 @@
 #         Mandatory for loading the modules
 ################################################################################
 # bootstrap.sh - Bootstrap Java, eventually with Easybuild
-# Time-stamp: <Sun 2018-01-21 08:11 svarrette>
+# Time-stamp: <Mon 2018-01-22 13:03 svarrette>
 ################################################################################
 
 DO_EASYBUILD=
@@ -101,5 +101,6 @@ fi
 
 # eventually install Hadoop
 if [ -n "${INSTALL_HADOOP}" ] && [ -n "${DO_EASYBUILD}" ] && [ -f "${HADOOP_EB}" ]; then
+    module load devel/Maven/3.5.2 devel/protobuf/2.5.0 devel/CMake/3.9.1 lib/snappy/1.1.6
     eb_install "${HADOOP_EB}"
 fi
