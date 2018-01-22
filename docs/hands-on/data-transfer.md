@@ -37,7 +37,7 @@ The way SSH handles the keys and the configuration files is illustrated in the f
 ![SSH key management](https://hpc.uni.lu/images/docssh/schema.png)
 
 
-### SSH Key generation
+### Step 1. SSH Key generation
 
 In order to be able to transparently connect between the VMS, you'll first need to generate the key pairs on each VMs
 
@@ -97,7 +97,7 @@ Now authorize the key of the first (default) VM by **appending** the **public** 
 4096 SHA256:wsJfnBc9mE8XWoU30KRJ0Ib7c7UNUQej7By/J79pCTw vagrant@vm.vagrant.dev (RSA)   # Ensure this matches the expected fingerprint
 ```
 
-### Data transfer over SSH with `scp`
+### Step 2.a Data transfer over SSH with `scp`
 
 You should now be able to connect **transparently from `vm` to `node-1`**.
 
@@ -123,7 +123,7 @@ This would also permit you to transfer an [big] file from `vm` to `node-1` using
 
 **Question**: compare the obtained time. What do you notice ?
 
-### Data transfer over SSH with `rsync`
+### Step 2.b Data transfer over SSH with `rsync`
 
 Now let's try again with `rsync`
 
