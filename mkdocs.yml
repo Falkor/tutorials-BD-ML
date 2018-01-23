@@ -11,6 +11,9 @@ pages:
   - Modules, LMod and Easybuild: 'hands-on/easybuild.md'
   - Hadoop/Installation: 'hands-on/hadoop/install.md'
   - Data Transfer over SSH: 'hands-on/data-transfer.md'
+  - Hadoop/Wordcount: 'hands-on/hadoop/wordcount.md'
+  - Spark/Installation: 'hands-on/hadoop/install.md'
+  - Spark/Usage: 'hands-on/hadoop/usage.md'
 - Contributing:
   - Overview: 'contributing/index.md'
   - Directory Layout: 'layout.md'
