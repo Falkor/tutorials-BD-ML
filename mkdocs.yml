@@ -12,8 +12,8 @@ pages:
   - Hadoop/Installation: 'hands-on/hadoop/install.md'
   - Data Transfer over SSH: 'hands-on/data-transfer.md'
   - Hadoop/Wordcount: 'hands-on/hadoop/wordcount.md'
-  - Spark/Installation: 'hands-on/hadoop/install.md'
-  - Spark/Usage: 'hands-on/hadoop/usage.md'
+  - Spark/Installation: 'hands-on/spark/install.md'
+  - Spark/Usage: 'hands-on/spark/usage.md'
 - Contributing:
   - Overview: 'contributing/index.md'
   - Directory Layout: 'layout.md'
