@@ -186,3 +186,8 @@ and enter your password.
 
 Note that if the Docker installation fails, you can use <http://play-with-docker.com/> to try Docker, but **it won't work if all of us try it once!**
 So use it only as a last resort, and it is up to you to use any important information (like the Docker hub account) inside it.
+
+__Mkdocs__
+
+It probably makes sense to install  [`mkdocs`](http://www.mkdocs.org/#installation)  to be able to generate locally the current documentation.
+Follow for that the instructions provided on the [`rtfd.md`](rtfd.md).
