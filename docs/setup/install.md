@@ -6,7 +6,7 @@ Then this repository is hosted on [Github](https://github.com/Falkor/tutorials-B
 
         $> mkdir -p ~/git/github.com/Falkor
         $> cd ~/git/github.com/Falkor
-        $> git clone git@github.com:Falkor/tutorials-BD-ML.git
+        $> git clone https://github.com/Falkor/tutorials-BD-ML.git
 
 * You'll probably wish to have a separate directory structure when working in this tutorial. Here is a suggested approach:
 
