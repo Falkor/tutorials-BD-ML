@@ -1,4 +1,4 @@
-First of all, ensure you have install the [Pre-requisites / Preliminary software](preliminaries.md) and follow the corresponding configuration.
+First of all, ensure you have installed the [Pre-requisites / Preliminary software](preliminaries.md) and followed the corresponding configuration.
 
 Then this repository is hosted on [Github](https://github.com/Falkor/tutorials-BD-ML). Assuming you have installed `git`:
 
@@ -21,7 +21,14 @@ Then this repository is hosted on [Github](https://github.com/Falkor/tutorials-B
 
 This will initiate the [Git submodules of this repository](.gitmodules) and setup the [git flow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) layout for this repository.
 
-Later on, you can upgrade the [Git submodules](.gitmodules) to the latest version by running:
+Now you need to validate the Vagrant configuration by running:
+
+     $> cd ~/git/github.com/Falkor/tutorials-BD-ML
+     $> vagrant up
+
+This will download the latest version of the Vagrant box pre-configured, and bootstrap the VM.
+
+Finally, later on, you can upgrade the [Git submodules](.gitmodules) to the latest version by running:
 
     $> make upgrade
 

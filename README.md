@@ -3,7 +3,7 @@
 ![By Falkor](https://img.shields.io/badge/by-Falkor-blue.svg)  [![Licence](https://img.shields.io/badge/license-GPL--3.0-blue.svg)](http://www.gnu.org/licenses/gpl-3.0.html) [![github](https://img.shields.io/badge/git-github-lightgray.svg)](https://github.com/Falkor/tutorials-bd-ml) [![Documentation Status](https://readthedocs.org/projects/nesusws-tutorials-bd-dl/badge/?version=latest)](http://nesusws-tutorials-bd-dl.readthedocs.io/en/latest/?badge=latest)
 
 
-       Time-stamp: <Tue 2018-01-23 11:31 svarrette>
+       Time-stamp: <Tue 2018-01-23 15:48 svarrette>
 
          ____  _         ____        _             _                _       _   _
         | __ )(_) __ _  |  _ \  __ _| |_ __ _     / \   _ __   __ _| |_   _| |_(_) ___ ___
@@ -26,30 +26,20 @@ This repository hosts documents, material and information related to the tutoria
 
 ## Installation / Repository Setup
 
-Reference instructions can be found in [`docs/setup/install.md`](docs/setup/install.md).
+First of all, ensure you have installed the [Pre-requisites / Preliminary software](docs/setup/preliminaries.md) and follow the corresponding configuration.
 
-This repository is hosted on [Github](https://github.com/Falkor/tutorials-BD-ML).
+Then reference instructions for setting up this repository can be found in [`docs/setup/install.md`](docs/setup/install.md).
 
-* To clone this repository, proceed as follows (adapt accordingly):
+In short:
 
-        $> mkdir -p ~/git/github.com/Falkor
-        $> cd ~/git/github.com/Falkor
-        $> git clone https://github.com/Falkor/tutorials-BD-ML.git
-
-**`/!\ IMPORTANT`**: Once cloned, initiate your local copy of the repository by running:
-
-    $> cd tutorials-BD-ML
-    $> make setup
-
-This will initiate the [Git submodules of this repository](.gitmodules) and setup the [git flow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) layout for this repository.
-
-Later on, you can upgrade the [Git submodules](.gitmodules) to the latest version by running:
-
-    $> make upgrade
-
-If upon pulling the repository, you end in a state where another collaborator have upgraded the Git submodules for this repository, you'll end in a dirty state (as reported by modifications within the `.submodules/` directory). In that case, just after the pull, you **have to run** the following to ensure consistency with regards the Git submodules:
-
-    $> make update
+```bash
+$> mkdir -p ~/git/github.com/Falkor
+$> cd ~/git/github.com/Falkor
+$> git clone https://github.com/Falkor/tutorials-BD-ML.git
+$> cd tutorials-BD-ML
+$> make setup
+$> vagrant up
+```
 
 ## Tutorial Slides and Instructions
 
@@ -57,10 +47,14 @@ The latest version of the tutorial is available online:
 
 <http://nesusws-tutorials-bd-dl.rtfd.io>
 
+A PDF copy of the slides are located within this repository in [`docs/slides_BDA.pdf`](docs/slides_BDA.pdf)
+
+A [List of the hands-on](docs/hands-on/README.md) is also summarized in [`docs/hands-on/README.md`](docs/hands-on/README.md).
 
 ## Issues / Feature request
 
-You can submit bug / issues / feature request using the [`Falkor/tutorials-bd-ml` Project Tracker](https://github.com/Falkor/tutorials-BD-ML/issues)
+You can submit bug / issues / feature request using the [`Falkor/tutorials-bd-ml` Project Tracker](https://github.com/Falkor/tutorials-BD-ML/issues).
+To contribute, kindly follow the guidelines provided in [`docs/contributing/README.md`](docs/contributing/README.md).
 
 ## Licence
 
