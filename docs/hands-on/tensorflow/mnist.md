@@ -29,13 +29,15 @@ MNIST images is of a handwritten digit between zero and nine. So there are only 
 In this hands-on, we will design two **classifiers** for MNIST images:
 
 1. A very [simple MNIST classifier](https://www.tensorflow.org/get_started/mnist/beginners), able to reach an accuracy of around 92% -- see Jupyter notebook `mnist-1-simple.ipynb`
-2. A more advanced deep MNIST classifier using convolutional layers, which will reach an accuracy of around 99.25%, which is way better than the previously obtained results (around 92%) -- see Jupyter Notebook `mnist-2-deep_convolutional_NN.ipynb`
+2. A more advanced [deep MNIST classifier using convolutional layers](https://www.tensorflow.org/get_started/mnist/pros), which will reach an accuracy of around 99.25%, which is way better than the previously obtained results (around 92%) -- see Jupyter Notebook `mnist-2-deep_convolutional_NN.ipynb`
 
-You can now run the jupyter notebook to open these files and proceed with the tutorial.
+You can now run the [jupyter notebook](https://jupyter.org/install.html) to open these files and proceed with the tutorial.
 
 ```
 $> cd ~/git/github.com/Falkor/tutorials-BD-ML/docs/hands-on/tensorflow
 $> jupyter notebook
 
 # Now open the appropriate notebook
+#  1. mnist-1-simple.ipynb
+#  2. mnist-2-deep_convolutional_NN.ipynb
 ```

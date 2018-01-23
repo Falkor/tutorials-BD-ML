@@ -118,7 +118,4 @@ $> jupyter notebook
 # See 'Kernel -> Change kernel' and eventually switch to 'nesusWS' upon new page
 ```
 
-You are ready to open the provided tutorials:
-
-* Very simple MNIST classifier: `mnist-1-simple.ipynb`
-* A Deep MNIST classifier using convolutional layers:  `mnist-2-deep_convolutional_NN.ipynb`
+You are ready to open the provided tutorials -- [See `mnist.md`](mnist.md)
