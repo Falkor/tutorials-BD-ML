@@ -3,7 +3,7 @@
 ![By Falkor](https://img.shields.io/badge/by-Falkor-blue.svg)  [![Licence](https://img.shields.io/badge/license-GPL--3.0-blue.svg)](http://www.gnu.org/licenses/gpl-3.0.html) [![github](https://img.shields.io/badge/git-github-lightgray.svg)](https://github.com/Falkor/tutorials-bd-ml) [![Issues](https://img.shields.io/badge/issues-github-green.svg)](https://github.com/Falkor/tutorials-BD-ML/issues) [![GitHub issues](https://img.shields.io/github/issues/Falkor/tutorials-BD-ML.svg)](https://github.com/Falkor/tutorials-BD-ML/issues/) [![Documentation Status](https://readthedocs.org/projects/nesusws-tutorials-bd-dl/badge/?version=latest)](http://nesusws-tutorials-bd-dl.readthedocs.io/en/latest/?badge=latest)
 
 
-       Time-stamp: <Mon 2018-01-22 15:12 svarrette>
+       Time-stamp: <Tue 2018-01-23 02:36 svarrette>
 
          ____  _         ____        _             _                _       _   _
         | __ )(_) __ _  |  _ \  __ _| |_ __ _     / \   _ __   __ _| |_   _| |_(_) ___ ___
@@ -20,6 +20,8 @@ This repository hosts documents, material and information related to the tutoria
 * __Location__: Zagreb, Croatia
 * _by_: Dr. [Sebastien Varrette](https://varrette.gforge.uni.lu/)
 
+[![](https://github.com/Falkor/tutorials-BD-ML/raw/master/docs/cover..png)](https://github.com/Falkor/tutorials-BD-ML/raw/master/docs/slides_BDA.pdf)
+
 This is the main page of the documentation for this repository, which relies on [MkDocs](http://www.mkdocs.org/) and the [Read the Docs](http://readthedocs.io) theme.
 In particular, the latest version of the tutorial is available online:
 
@@ -31,7 +33,7 @@ It proposes to detail the following elements:
 * Complete [Installation](setup/README.md) notes, including:
     - [Pre-requisites / Preliminary software](setup/preliminaries.md) to install and configuration instructions
     - [Installation](setup/README.md) notes
-* Tutorial Slides
+* [Tutorial Slides](slides_BDA.pdf)
 * Hands-on Instructions (see [detailed list of the proposed hands-on](hands-on/README.md))
 * How to [contribute](contributing/index.md) to the development of this project. In particular, we detail:
      - the steps to follow to [setup this repository](contributing/setup.md)

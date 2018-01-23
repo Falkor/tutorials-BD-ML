@@ -2,7 +2,7 @@
 **IMPORTANT**: you should have installed [Hadoop MapReduce by Cloudera](https://www.cloudera.com/downloads/cdh/5-12-0.html) using [EasyBuild](http://easybuild.readthedocs.io/) as detailed in the [Hands-on 2](/hands-on/hadoop/install/).
 
 
-## a. Single mode
+## Step 1 Single mode
 
 ```bash
 $> vagrant ssh default
