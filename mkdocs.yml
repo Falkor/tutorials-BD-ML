@@ -14,8 +14,8 @@ pages:
   - Hadoop/Wordcount: 'hands-on/hadoop/wordcount.md'
   - Spark/Installation: 'hands-on/spark/install.md'
   - Spark/Usage: 'hands-on/spark/usage.md'
-  - Tensorflow: 'hands-on/tensorflow/install.md'
-  # - Tensorflow/Very simple MNIST classifier: 'hands-on/tensorflow/install.md'
+  - Tensorflow/Installation: 'hands-on/tensorflow/install.md'
+  - Tensorflow/MNIST classifier: 'hands-on/tensorflow/mnist.md'
   # - Tensorflow/MNIST classifier using convolutional layers: 'hands-on/tensorflow/install.md`
 - Contributing:
   - Overview: 'contributing/index.md'
