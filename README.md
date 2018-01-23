@@ -3,7 +3,7 @@
 ![By Falkor](https://img.shields.io/badge/by-Falkor-blue.svg)  [![Licence](https://img.shields.io/badge/license-GPL--3.0-blue.svg)](http://www.gnu.org/licenses/gpl-3.0.html) [![github](https://img.shields.io/badge/git-github-lightgray.svg)](https://github.com/Falkor/tutorials-bd-ml) [![Documentation Status](https://readthedocs.org/projects/nesusws-tutorials-bd-dl/badge/?version=latest)](http://nesusws-tutorials-bd-dl.readthedocs.io/en/latest/?badge=latest)
 
 
-       Time-stamp: <Thu 2018-01-18 16:30 svarrette>
+       Time-stamp: <Tue 2018-01-23 02:43 svarrette>
 
          ____  _         ____        _             _                _       _   _
         | __ )(_) __ _  |  _ \  __ _| |_ __ _     / \   _ __   __ _| |_   _| |_(_) ___ ___
@@ -22,6 +22,7 @@ This repository hosts documents, material and information related to the tutoria
 * __Location__: Zagreb, Croatia
 * _by_: Dr. [Sebastien Varrette](https://varrette.gforge.uni.lu/)
 
+[![](https://github.com/Falkor/tutorials-BD-ML/raw/master/docs/cover.png)](https://github.com/Falkor/tutorials-BD-ML/raw/master/docs/slides_BDA.pdf)
 
 ## Installation / Repository Setup
 

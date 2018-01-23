@@ -3,7 +3,7 @@
 ![By Falkor](https://img.shields.io/badge/by-Falkor-blue.svg)  [![Licence](https://img.shields.io/badge/license-GPL--3.0-blue.svg)](http://www.gnu.org/licenses/gpl-3.0.html) [![github](https://img.shields.io/badge/git-github-lightgray.svg)](https://github.com/Falkor/tutorials-bd-ml) [![Issues](https://img.shields.io/badge/issues-github-green.svg)](https://github.com/Falkor/tutorials-BD-ML/issues) [![GitHub issues](https://img.shields.io/github/issues/Falkor/tutorials-BD-ML.svg)](https://github.com/Falkor/tutorials-BD-ML/issues/) [![Documentation Status](https://readthedocs.org/projects/nesusws-tutorials-bd-dl/badge/?version=latest)](http://nesusws-tutorials-bd-dl.readthedocs.io/en/latest/?badge=latest)
 
 
-       Time-stamp: <Tue 2018-01-23 02:36 svarrette>
+       Time-stamp: <Tue 2018-01-23 02:42 svarrette>
 
          ____  _         ____        _             _                _       _   _
         | __ )(_) __ _  |  _ \  __ _| |_ __ _     / \   _ __   __ _| |_   _| |_(_) ___ ___
@@ -20,7 +20,7 @@ This repository hosts documents, material and information related to the tutoria
 * __Location__: Zagreb, Croatia
 * _by_: Dr. [Sebastien Varrette](https://varrette.gforge.uni.lu/)
 
-[![](https://github.com/Falkor/tutorials-BD-ML/raw/master/docs/cover..png)](https://github.com/Falkor/tutorials-BD-ML/raw/master/docs/slides_BDA.pdf)
+[![](https://github.com/Falkor/tutorials-BD-ML/raw/master/docs/cover.png)](https://github.com/Falkor/tutorials-BD-ML/raw/master/docs/slides_BDA.pdf)
 
 This is the main page of the documentation for this repository, which relies on [MkDocs](http://www.mkdocs.org/) and the [Read the Docs](http://readthedocs.io) theme.
 In particular, the latest version of the tutorial is available online:
