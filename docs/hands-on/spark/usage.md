@@ -8,7 +8,7 @@ In this part, we will review the basic usage of Spark in two cases:
 
 ## Step 1. Interactive usage
 
-### a. Pyspark
+### 1.a. Pyspark
 
 PySpark is the Spark Python API and exposes Spark Contexts to the Python programming environment.
 
@@ -40,7 +40,7 @@ SparkSession available as 'spark'.
 
 See [this tutorial](https://www.dezyre.com/apache-spark-tutorial/pyspark-tutorial) for playing with pyspark.
 
-### b. Scala Spark Shell
+### 1.b. Scala Spark Shell
 
 Spark includes a modified version of the Scala shell that can be used interactively.
 Instead of running `pyspark` above, run the `spark-shell` command:
@@ -80,7 +80,7 @@ scala>
 ```
 
 
-### c.  R Spark Shell
+### 1.c.  R Spark Shell
 
 The Spark R API is still experimental. Only a subset of the R API is available -- See the [SparkR Documentation](https://spark.apache.org/docs/latest/sparkr.html).
 Since this tutorial does not cover R, we are not going to use it.

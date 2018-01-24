@@ -5,9 +5,9 @@ As this involves Java (something more probably HPC users don't like), and that J
 
 **IMPORTANT**:you need to have followed the [Easybuild hand-on](../easybuild.md) before reaching this place.
 
-## Pre-requisite
+## Step 1. Pre-requisite
 
-### Java 7u80 and 8u152
+### 1.a. Java 7u80 and 8u152
 
 We'll need several version of the [JDK](http://www.oracle.com/technetwork/java/javase/overview/index.html) (in Linux x64 source mode i.e. `jdk-<version>-linux-x64.tar.gz`), more specifically 1.7.0_80 (aka `7u80` in Oracle's naming convention) and 1.8.0_152 (aka `8u152`).
 
@@ -127,7 +127,7 @@ setenv("JAVA_HOME","/opt/apps/software/lang/Java/1.7.0_80")
 ```
 
 
-### Maven 3.5.2
+### 1.b Maven 3.5.2
 
 We will also need an updated version of [Maven](https://maven.apache.org/) (3.5.2).
 
@@ -233,7 +233,7 @@ $> module av      # or 'module available' or 'ma'
 ```
 
 
-## Hadoop Installation
+## Step 2. Hadoop Installation
 
 We're going to install the most recent  [Hadoop by Cloudera](https://www.cloudera.com/downloads/cdh/5-12-0.html) _i.e._ `Hadoop-2.6.0-cdh5.12.0-native.eb`.
 

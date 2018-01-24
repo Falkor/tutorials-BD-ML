@@ -53,6 +53,6 @@ Once this is done, follow the [official Wordcount instructions](https://hadoop.a
 
 
 
-## b. Distributed mode
+## Step 2. Distributed mode
 
 Adapt the configuration to enable a [Cluster Setup](https://hadoop.apache.org/docs/r2.6.0/hadoop-project-dist/hadoop-common/ClusterSetup.html)
