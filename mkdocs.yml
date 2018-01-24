@@ -1,0 +1,25 @@
+site_name: Big Data Analytics
+pages:
+- Home: 'index.md'
+- Getting Started:
+  - Overview: 'setup/index.md'
+  - Pre-Requisites: 'setup/preliminaries.md'
+  - Installation: 'setup/install.md'
+- Hands-On:
+  - Overview:                    'hands-on/index.md'
+  - Vagrant:                     'hands-on/vagrant.md'
+  - Modules, LMod and Easybuild: 'hands-on/easybuild.md'
+  - Hadoop/Installation:         'hands-on/hadoop/install.md'
+  - Data Transfer over SSH:      'hands-on/data-transfer.md'
+  - Hadoop/Wordcount:            'hands-on/hadoop/wordcount.md'
+  - Spark/Installation:          'hands-on/spark/install.md'
+  - Spark/Usage:                 'hands-on/spark/usage.md'
+  - Tensorflow/Installation:     'hands-on/tensorflow/install.md'
+  - Tensorflow/MNIST classifier: 'hands-on/tensorflow/mnist.md'
+- Documentation (RTFD): 'rtfd.md'
+- Contributing:
+  - Overview: 'contributing/index.md'
+  - Directory Layout: 'layout.md'
+  - Repository Setup and Developments: 'contributing/setup.md'
+  - Semantic Versioning: 'contributing/versioning.md'
+theme: readthedocs

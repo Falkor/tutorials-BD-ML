@@ -1,0 +1,4 @@
+*.rpmsave
+.DS_Store
+.vagrant/
+tmp/
