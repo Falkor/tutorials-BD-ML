@@ -1,9 +1,9 @@
 -*- mode: markdown; mode: visual-line; fill-column: 80 -*-
 
-![By Falkor](https://img.shields.io/badge/by-Falkor-blue.svg)  [![Licence](https://img.shields.io/badge/license-GPL--3.0-blue.svg)](http://www.gnu.org/licenses/gpl-3.0.html) [![github](https://img.shields.io/badge/git-github-lightgray.svg)](https://github.com/Falkor/tutorials-bd-ml) [![Issues](https://img.shields.io/badge/issues-github-green.svg)](https://github.com/Falkor/tutorials-BD-ML/issues) [![GitHub issues](https://img.shields.io/github/issues/Falkor/tutorials-BD-ML.svg)](https://github.com/Falkor/tutorials-BD-ML/issues/) [![Documentation Status](https://readthedocs.org/projects/nesusws-tutorials-bd-dl/badge/?version=latest)](http://nesusws-tutorials-bd-dl.readthedocs.io/en/latest/?badge=latest)
+![By Falkor](https://img.shields.io/badge/by-Falkor-blue.svg)  [![Licence](https://img.shields.io/badge/license-GPL--3.0-blue.svg)](http://www.gnu.org/licenses/gpl-3.0.html) [![github](https://img.shields.io/badge/git-github-lightgray.svg)](https://github.com/Falkor/tutorials-bd-ml) [![GitHub issues](https://img.shields.io/github/issues/Falkor/tutorials-BD-ML.svg)](https://github.com/Falkor/tutorials-BD-ML/issues/) [![Documentation Status](https://readthedocs.org/projects/nesusws-tutorials-bd-dl/badge/?version=latest)](http://nesusws-tutorials-bd-dl.readthedocs.io/en/latest/?badge=latest)
 
 
-       Time-stamp: <Wed 2018-01-24 17:34 svarrette>
+       Time-stamp: <Wed 2018-01-24 17:35 svarrette>
 
          ____  _         ____        _             _                _       _   _
         | __ )(_) __ _  |  _ \  __ _| |_ __ _     / \   _ __   __ _| |_   _| |_(_) ___ ___
